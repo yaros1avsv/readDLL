@@ -7,8 +7,6 @@
 #include "FSdll.h"
 #include <string>
 
-//111
-
 void PrintBootSectInfo(BPB _bpb)
 {
 	printf("NTFS Disk Information: \n");

@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FSdll", "FSdll\FSdll.vcxproj", "{4097D02E-1674-4F6A-820E-13B7891C9D18}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FSapp", "..\FSapp\FSapp\FSapp.vcxproj", "{BC9AF4CE-08EF-4A20-A291-1236B7C6F2D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{4097D02E-1674-4F6A-820E-13B7891C9D18}.Release|x64.Build.0 = Release|x64
 		{4097D02E-1674-4F6A-820E-13B7891C9D18}.Release|x86.ActiveCfg = Release|Win32
 		{4097D02E-1674-4F6A-820E-13B7891C9D18}.Release|x86.Build.0 = Release|Win32
+		{BC9AF4CE-08EF-4A20-A291-1236B7C6F2D8}.Debug|x64.ActiveCfg = Debug|x64
+		{BC9AF4CE-08EF-4A20-A291-1236B7C6F2D8}.Debug|x64.Build.0 = Debug|x64
+		{BC9AF4CE-08EF-4A20-A291-1236B7C6F2D8}.Debug|x86.ActiveCfg = Debug|Win32
+		{BC9AF4CE-08EF-4A20-A291-1236B7C6F2D8}.Debug|x86.Build.0 = Debug|Win32
+		{BC9AF4CE-08EF-4A20-A291-1236B7C6F2D8}.Release|x64.ActiveCfg = Release|x64
+		{BC9AF4CE-08EF-4A20-A291-1236B7C6F2D8}.Release|x64.Build.0 = Release|x64
+		{BC9AF4CE-08EF-4A20-A291-1236B7C6F2D8}.Release|x86.ActiveCfg = Release|Win32
+		{BC9AF4CE-08EF-4A20-A291-1236B7C6F2D8}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,4 @@
-#pragma once
+#pragma once //for test
 
 #ifdef FSREADER_EXPORTS
 #define FSREADER_API __declspec(dllexport)

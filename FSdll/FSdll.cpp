@@ -74,7 +74,26 @@ bool getFsInfo(std::string diskNameFormated, BPB* _bpb)
 	HANDLE hDisk = CreateFileA(diskNameFormated.c_str(),
 		GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE,
 		NULL, OPEN_EXISTING, 0, NULL);
-	
+	if (hDisk == INVALID_HANDLE_VALUE)
+	{
+		wprintf(L"CreateFile() failed!\n");
+		wprintf(L" %u \n", GetLastError());
+		if (CloseHandle(hDisk) != 0)
+			wprintf(L"hVolume handle was closed successfully!\n");
+		else
+		{
+			wprintf(L"Failed to close hVolume handle!\n");
+		}
+		return false;
+	}
+
+	if (!ReadFile(hDisk, bBootSector, 512, &dwBytesRead, NULL))
+	{
+		printf("Error in reading the disk\n");
+		CloseHandle(hDisk);
+		return false;
+	}
+
 	CloseHandle(hDisk);
 	*_bpb = *reinterpret_cast<BPB*>(bBootSector);
 	return true;

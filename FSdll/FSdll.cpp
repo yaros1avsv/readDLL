@@ -46,7 +46,7 @@ std::string FindFSName(std::string diskName)
 	if (GetVolumeInformationA(forVolumeInf.c_str(), NameBuffer, sizeof(NameBuffer),
 		&VSNumber, &MCLength, &FileSF, _SysBuffer, sizeof(_SysBuffer)))
 	{
-		std::cout << "Detected file system is " << _SysBuffer << std::endl << std::endl;
+		std::cout << "Your FS is " << _SysBuffer << std::endl << std::endl;
 		std::string SysName = _SysBuffer;
 
 		return SysName;

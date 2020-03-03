@@ -1,3 +1,5 @@
+//DLL for read NTFS
+
 #include "pch.h"
 #include <iostream>
 #include <windows.h>

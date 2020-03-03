@@ -12,7 +12,7 @@
 void PrintBootSectInfo(BPB _bpb)
 {
 	printf("NTFS Disk Information: \n");
-	printf("===========================\n");
+	printf("======================================\n");
 	printf("Assembly Instruction to jump to Boot code: 0x%X\n", _bpb.jumpCode);
 	printf("OEM Name: %s\n", _bpb.oemID);
 	printf("Bytes per sector: %d\n", _bpb.bytesPerSector);
@@ -66,7 +66,7 @@ bool fsIsSupported(std::string SysName)
 
 bool getFsInfo(std::string diskNameFormated, BPB* _bpb)
 {
-	//TODO: handle errors in the way, that make sense
+	//
 	BYTE bBootSector[512];
 	memset(bBootSector, 0, 512);
 	DWORD dwBytesRead(0);

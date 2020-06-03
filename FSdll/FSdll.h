@@ -13,6 +13,8 @@
 #include <algorithm>
 #include <stdio.h>
 
+using namespace std;
+
 #pragma pack(1)
 typedef struct 
 {
@@ -43,27 +45,13 @@ typedef struct
 } NTFS_BR;
 #pragma pack()
 
-class FileSystem {
+class FileSystem{
 public:
-	FileSystem() {}
-	FileSystem(const char* FSdiskName) {
-		diskName = FSdiskName;
+	FileSystem(string fileName) {
+
+		this->fileName = fileName;
 	}
-	virtual void readBootRecord() = 0;
-	virtual ~FileSystem() {}
-	std::string diskName;
-};
-
-
-class NTFSFileSystem : public FileSystem {
-public:
-	NTFSFileSystem() {}
-	NTFSFileSystem(const char* diskName) : FileSystem(diskName) {}
-
-	void readBootRecord() override;
-
+	virtual void bootInfo() {};
 private:
-	NTFS_BR bootRecord;
+	string fileName;
 };
-
-extern "C++" READ_DLL FileSystem * getDiskFS(const char* diskName);

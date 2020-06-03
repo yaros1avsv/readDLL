@@ -68,3 +68,13 @@ private:
 	void PrintBootSectInfo(NTFS_BR bootRec);
 	bool setPointerToBegin(HANDLE fileHandle);
 };
+
+class FileSystemFactory {
+public:
+	FileSystem* create(string fileName);
+private:
+	string checkFS(string fileName);
+};
+
+// Declaring functions
+extern "C++" READ_DLL void getInfo(string fileName);

@@ -55,3 +55,16 @@ public:
 private:
 	string fileName;
 };
+
+class NTFS : public FileSystem {
+public:
+	NTFS(string fileName) : FileSystem(fileName) {
+
+		this->fileName = fileName;
+	}
+	void bootInfo() override;
+private:
+	string fileName;
+	void PrintBootSectInfo(NTFS_BR bootRec);
+	bool setPointerToBegin(HANDLE fileHandle);
+};

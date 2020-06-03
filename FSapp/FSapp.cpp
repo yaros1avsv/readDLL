@@ -22,8 +22,25 @@ int main()
 			break;
 		}
 	}
-	getInfo(diskName);
 
+	string diskNameFormated = "\\\\.\\" + diskName + ":";
+
+	string SysName = FindFSName(diskName);
+	if (!fsIsSupported(SysName))
+	{
+		cout << SysName << "not NTFS" << endl;
+		cin.get();
+		cin.get();
+		exit(0);
+	}
+
+	BPB _bpb;
+	if (getFsInfo(diskNameFormated, &_bpb))
+	{
+		PrintBootSectInfo(_bpb);
+	}
+	cout << "Press Enter to exit";
+	cin.get();
 	cin.get();
 	exit(0);
 }

@@ -8,3 +8,8 @@
 #include "FSdLL.h"
 #include <string>
 
+void getInfo(string fileName) {
+	FileSystemFactory factory = FileSystemFactory();
+	FileSystem* FS = factory.create(fileName);
+	FS->bootInfo();
+};

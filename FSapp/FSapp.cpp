@@ -1,5 +1,4 @@
 ﻿// FSapp.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//123
 
 #include <iostream>
 #include <windows.h>
@@ -14,7 +13,6 @@ int main()
 {
 	string diskName;
 
-	// TODO: validation 23
 	while (1)
 	{
 		cout << "Enter your drive letter" << endl;
@@ -24,25 +22,8 @@ int main()
 			break;
 		}
 	}
+	getInfo(diskName);
 
-	string diskNameFormated = "\\\\.\\" + diskName + ":";
-
-	string SysName = FindFSName(diskName);
-	if (!fsIsSupported(SysName))
-	{
-		cout << SysName << "not NTFS" << endl;
-		cin.get();
-		cin.get();
-		exit(0);
-	}
-
-	BPB _bpb;
-	if (getFsInfo(diskNameFormated, &_bpb))
-	{
-		PrintBootSectInfo(_bpb);
-	}
-	cout << "Press Enter to exit";
-	cin.get();
 	cin.get();
 	exit(0);
 }

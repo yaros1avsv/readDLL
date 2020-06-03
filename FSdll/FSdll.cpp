@@ -6,4 +6,5 @@
 #include <windows.h>
 #include <iostream>
 #include "FSdLL.h"
+#include <string>
 

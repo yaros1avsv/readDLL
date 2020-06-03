@@ -1,9 +1,9 @@
-#pragma once //for test
+#pragma once 
 
 #ifdef FSREADER_EXPORTS
-#define FSREADER_API __declspec(dllexport)
+#define READ_DLL __declspec(dllexport)
 #else
-#define FSREADER_API __declspec(dllimport)
+#define READ_DLL __declspec(dllimport)
 #endif
 
 #include <iostream>
@@ -14,7 +14,7 @@
 #include <stdio.h>
 
 #pragma pack(1)
-typedef struct _BIOS_PARAM_BLOCK
+typedef struct 
 {
 	BYTE jumpCode[3];
 	BYTE oemID[8];
@@ -40,10 +40,30 @@ typedef struct _BIOS_PARAM_BLOCK
 	DWORD checksum;
 	BYTE bootstrap[426];
 	WORD endMarker;
-} BPB;
+} NTFS_BR;
 #pragma pack()
 
-extern "C++" FSREADER_API void PrintBootSectInfo(BPB _bpb);
-extern "C++" FSREADER_API std::string FindFSName(std::string diskName);
-extern "C++" FSREADER_API bool fsIsSupported(std::string SysName);
-extern "C++" FSREADER_API bool getFsInfo(std::string diskNameFormated, BPB * _bpb);
+class FileSystem {
+public:
+	FileSystem() {}
+	FileSystem(const char* FSdiskName) {
+		diskName = FSdiskName;
+	}
+	virtual void readBootRecord() = 0;
+	virtual ~FileSystem() {}
+	std::string diskName;
+};
+
+
+class NTFSFileSystem : public FileSystem {
+public:
+	NTFSFileSystem() {}
+	NTFSFileSystem(const char* diskName) : FileSystem(diskName) {}
+
+	void readBootRecord() override;
+
+private:
+	NTFS_BR bootRecord;
+};
+
+extern "C++" READ_DLL FileSystem * getDiskFS(const char* diskName);

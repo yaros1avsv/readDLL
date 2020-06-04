@@ -1,4 +1,4 @@
-﻿// FSapp.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+﻿// FSapp.cpp : add Factory Method
 
 #include <iostream>
 #include "FSdll.h"
@@ -18,5 +18,8 @@ int main()
 			break;
 		}
 	}
+	getInfo(diskName);
 
+	cin.get();
+	exit(0);
 }

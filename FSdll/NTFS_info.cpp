@@ -15,7 +15,6 @@ void NTFS::bootInfo() {
 		NULL 
 	);
 
-	// Error handling
 	if (fileHandle == INVALID_HANDLE_VALUE)
 	{
 
